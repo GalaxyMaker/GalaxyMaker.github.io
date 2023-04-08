@@ -87,9 +87,13 @@
 		var responses = {
 			"안녕": "안녕하세요!",
 			"뭐해": "일하고 있어요.",
-			"오늘 날씨 어때": "맑아요.",
-			"배고파": "뭐 드실래요?",
-			"시간이 얼마나 됐어?": getCurrentTime
+			"오늘 날씨": "맑아요.",
+			"배고파": "뭐 먹을래?",
+			"지금 몇 시야?": getCurrentTime,
+            "오늘은 몇 일이지?": getCurrentDay,
+            "?": "???",
+            "챗봇": "안녕하세요, 챗봇입니다!",
+            "챗": "쳇!"
 		};
 
 		function getCurrentTime() {
@@ -99,6 +103,14 @@
 			var seconds = now.getSeconds();
 			return hours + ":" + minutes + ":" + seconds;
 		}
+
+		function getCurrentDay() {
+            var now = new Date();
+            var years = now.getFullYear();
+            var months = now.getMonth();
+            var days = now.getDay();
+            return years + "-" + months + "-" +days;
+        }
 
 		function sendMessage() {
 			var message = document.getElementById("usermsg").value;
