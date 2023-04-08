@@ -85,7 +85,7 @@
 	<script>
 
 		var responses = {
-			"안녕": "안녕하세요!",
+			"안녕","ㅎㅇㅎㅇ","ㅎㅇ": "안녕하세요!",
 			"뭐해": "일하고 있어요.",
 			"오늘 날씨": "맑아요.",
 			"배고파": "뭐 먹을래?",
@@ -93,7 +93,11 @@
             "오늘은 몇 일이지?": getCurrentDay,
             "?": "???",
             "챗봇": "안녕하세요, 챗봇입니다!",
-            "챗": "쳇!"
+            "챗": "쳇!",
+			"잘가","잘 가","굿바이","바이바이","ㅃ2","ㅂ2",바이":"안녕히가세요, 또 오세요!"
+			
+			
+			
 		};
 
 		function getCurrentTime() {
@@ -108,7 +112,7 @@
             var now = new Date();
             var years = now.getFullYear();
             var months = now.getMonth();
-            var days = now.getDay();
+            var days = now.getDate();
             return years + "-" + months + "-" +days;
         }
 
