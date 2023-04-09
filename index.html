@@ -104,7 +104,7 @@ function getCurrentTime() {
   return `${hours}:${minutes}:${seconds}`;
 }
 
-		function getCurrentDate() {
+function getCurrentDate() {
               const days = ["일", "월", "화", "수", "목", "금", "토"];
               const date = new Date();
 
@@ -117,7 +117,6 @@ function getCurrentTime() {
               return today;
         }
  
-
 function sendMessage() {
   const message = document.getElementById("usermsg").value;
   document.getElementById("chatbox").innerHTML += '<div class="chat-container right"><div class="user-bubble"><p>' + message + '</p></div></div>';
