@@ -90,10 +90,10 @@
 			"오늘 날씨": "맑아요.",
 			"배고파": "뭐 먹을래?",
 			"지금 몇 시야?": getCurrentTime,
-            "오늘은 몇 일이지?": getCurrentDay,
-            "?": "???",
-            "챗봇": "안녕하세요, 챗봇입니다!",
-            "챗": "쳇!"
+            		"오늘은 몇 일이지?": getCurrentDay,
+            		"?": "???",
+            		"챗봇": "안녕하세요, 챗봇입니다!",
+            		"챗": "쳇!"
 		};
 
 		function getCurrentTime() {
@@ -105,31 +105,31 @@
 		}
 
 		function getCurrentDay() {
-            var now = new Date();
-            var years = now.getFullYear();
-            var months = now.getMonth();
-            var days = now.getDay();
-            return years + "-" + months + "-" +days;
-        }
+            		var now = new Date();
+            		var years = now.getFullYear();
+            		var months = now.getMonth();
+            		var days = now.getDay();
+            		return years + "-" + months + "-" +days;
+        	}
 
-		function sendMessage() {
-			var message = document.getElementById("usermsg").value;
-			document.getElementById("chatbox").innerHTML += '<div class="chat-container right"><div class="user-bubble"><p>' + message + '</p></div></div>';
-			document.getElementById("usermsg").value = "";
-			sendResponse(message);
-		}
 
 		function sendResponse(message) {
-			var response = responses[message];
+			var response;
 
-if (response === undefined) {
-	response = "죄송해요, 잘 이해하지 못했어요.";
-} else if (typeof response === "function") {
-	response = response();
-}
+			if (message.includes("ㅎㅇ")) {
+				response = responses["안녕하세요!"];
+			} else {
+				response = responses[message];
+			}
 
-document.getElementById("chatbox").innerHTML += '<div class="chat-container left"><img src="chatbot.png" alt="챗봇 이미지" class="chatbot-image"><div class="chatbot-bubble"><p>챗봇: ' + response + '</p></div></div>';
-}
+			if (response === undefined) {
+				response = "죄송해요, 잘 이해하지 못했어요.";
+			} else if (typeof response === "function") {
+				response = response();
+			}
+
+			document.getElementById("chatbox").innerHTML += '<div class="chat-container left"><img src="chatbot.png" alt="챗봇 이미지" class="chatbot-image"><div class="chatbot-bubble"><p>챗봇: ' + response + '</p></div></div>';
+		}
 </script>
 </body>
 </html>
