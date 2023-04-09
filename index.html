@@ -104,13 +104,19 @@ function getCurrentTime() {
   return `${hours}:${minutes}:${seconds}`;
 }
 
-function getCurrentDay() {
-  const now = new Date();
-  const years = now.getFullYear();
-  const months = now.getMonth();
-  const days = now.getDay();
-  return `${years}-${months}-${days}`;
-}
+		function getCurrentDate() {
+              const days = ["일", "월", "화", "수", "목", "금", "토"];
+              const date = new Date();
+
+              const year = date.getFullYear(); 
+              const month = date.getMonth() + 1; 
+              const day = date.getDate();
+              const dayOfWeek = days[date.getDay()]; 
+
+              const today = `${year}년 ${month}월 ${day}일 (${dayOfWeek})`;
+              return today;
+        }
+ 
 
 function sendMessage() {
   const message = document.getElementById("usermsg").value;
