@@ -134,7 +134,7 @@ function sendResponse(message) {
   } else if (typeof response === "function") {
     response = response();
   } else if (message.includes("섭") {
-	     reply = responses["아가"];
+	     response = responses["아가"];
   }
 
   document.getElementById("chatbox").innerHTML += '<div class="chat-container left"><img src="chatbot.png" alt="챗봇 이미지" class="chatbot-image"><div class="chatbot-bubble"><p>챗봇: ' + response + '</p></div></div>';
