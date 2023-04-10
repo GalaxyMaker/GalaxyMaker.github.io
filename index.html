@@ -3,6 +3,13 @@
 <head>
 	<title>챗봇</title>
 	<style>
+		.chat-container {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			margin-bottom: 20px;
+		}
+
 		.chat-image {
 			width: 50px;
 			height: 50px;
@@ -55,9 +62,19 @@
 			flex-direction: row;
 			align-items: center;
 			margin-bottom: 20px;
+		}
+
+		.chatbot-container.left {
+			flex-direction: row-reverse;
+		}
+
+		.chatbot-container.right .chatbot-image {
+			display: none;
+		}
 	</style>
 </head>
 <body>
+	<h1>챗봇</h1>
 	<div id="chatbox"></div>
 	<div class="chat-container">
 		<input type="text" id="usermsg" onkeydown="if (event.keyCode === 13) sendMessage();">
@@ -116,8 +133,6 @@ function sendResponse(message) {
     response = "죄송해요, 잘 이해하지 못했어요.";
   } else if (typeof response === "function") {
     response = response();
-  } else if (message.includes("섭")) {
-	  response = responses["아가"];
   }
 
   document.getElementById("chatbox").innerHTML += '<div class="chat-container left"><img src="chatbot.png" alt="챗봇 이미지" class="chatbot-image"><div class="chatbot-bubble"><p>챗봇: ' + response + '</p></div></div>';
