@@ -152,6 +152,11 @@ function getCurrentDate() {
 	
 	function sendMessage() {
   		const message = document.getElementById("usermsg").value;
+		const message = document.getElementById("usermsg").value;
+      		const usermsg = document.getElementById("usermsg").value.trim();
+      		if (usermsg === "") {
+          		return;
+      		}
   		document.getElementById("chatbox").innerHTML += '<div class="chat-container right"><div class="user-bubble"><p>' + message + '</p></div></div>';
   		document.getElementById("usermsg").value = "";
   		sendResponse(message);
