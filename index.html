@@ -128,7 +128,13 @@ function getCurrentDate() {
 
 	function sendResponse(message) {
   		let response = responses[message];
-
+		
+		if (message.includes("섭")) { 
+			response = responses["아가"];
+		} else {
+			response = responses[message];
+		}
+		
 		if (response === undefined) {
     		response = "죄송해요, 잘 이해하지 못했어요.";
   		} else if (typeof response === "function") {
