@@ -129,23 +129,19 @@ function getCurrentDate() {
 
 	function sendResponse(message) {
   		let response = responses[message];
-		
-		if (message.includes("섭")) { 
-			response = responses["아가"];
-		} else if (message.includes("어려워") || message.includes("알아?")) {
-			response = responses["어려워"];
-		} else if {
-			response = responses[message];
-		}
-		
-		if (response === undefined) {
-    			response = "죄송해요, 잘 이해하지 못했어요.";
+  
+  		if (message.includes("섭")) { 
+  		  response = responses["아가"];
+  		} else if (message.includes("어려워") || message.includes("알아?")) {
+		    response = responses["어려워"];
+		} else if (response === undefined) {
+		    response = "죄송해요, 잘 이해하지 못했어요.";
   		} else if (typeof response === "function") {
-    			response = response();
-  		}
+    		response = response();
+ 		 }
 
-  		document.getElementById("chatbox").innerHTML += '<div class="chat-container left"><img src="chatbot.png" alt="챗봇 이미지" class="chatbot-image"><div class="chatbot-bubble"><p>챗봇: ' + response + '</p></div></div>';
-	}
+		  document.getElementById("chatbox").innerHTML += '<div class="chat-container left"><img src="chatbot.png" alt="챗봇 이미지" class="chatbot-image"><div class="chatbot-bubble"><p>챗봇: ' + response + '</p></div></div>';
+		}
 
 	</script>
 </body>
