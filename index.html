@@ -139,9 +139,9 @@ function getCurrentDate() {
 		}
 		
 		if (response === undefined) {
-    		response = "죄송해요, 잘 이해하지 못했어요.";
+    			response = "죄송해요, 잘 이해하지 못했어요.";
   		} else if (typeof response === "function") {
-    		response = response();
+    			response = response();
   		}
 
   		document.getElementById("chatbox").innerHTML += '<div class="chat-container left"><img src="chatbot.png" alt="챗봇 이미지" class="chatbot-image"><div class="chatbot-bubble"><p>챗봇: ' + response + '</p></div></div>';
