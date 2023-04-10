@@ -80,6 +80,14 @@
         bottom: 20px;
         left: 50%;
         transform: translateX(-50%);
+
+		.send-button {
+		position: fixed;
+		bottom: 26px;
+		left: calc(50% + 155px);
+		transform: translateX(-50%);
+		block-size: 3%;
+	}
 }
  
 
@@ -90,7 +98,8 @@
 	<div id="chatbox"></div>
 	<div class="chat-container">
 		<input type="text" id="usermsg" onkeydown="if (event.keyCode === 13) sendMessage();">
-		<img src="전송버튼이미지.png" onclick="sendMessage()" style="bottom: 26px; position: fixed; transform: translateX(-50%); left: 73.5%; block-size: 3%;">
+		<img src="전송버튼이미지.png" onclick="sendMessage()" class="send-button">
+	
 		
 	</div>
 	
