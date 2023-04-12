@@ -2,6 +2,32 @@
 <html>
 <head>
 	<title>웹사이트 이름</title>
+	<style>
+		.menu {
+			display: none;
+			position: absolute;
+			top: 50px;
+			left: 0;
+			background-color: #fff;
+			border: 1px solid #ddd;
+			padding: 10px;
+		}
+		
+		.menu-btn {
+			display: block;
+			position: fixed;
+			top: 10px;
+			left: 10px;
+			background-color: #333;
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			z-index: 1; 
+		}
+	</style>	
+		
 </head>
 <body>
 	<h1>Contents List</h1>
@@ -43,9 +69,19 @@
 	</ol>	
 	
 	<h3><a name="mijuk1"></a><미적분 1학기 지필평가 범위 안내></h3>
-	<b>내용 범위</b> : 수열의 수렴과 발산~지수함수와 로그함수의 도함수<br><b>시험 범위 해당하는 쪽 수</b><br>12~67쪽<br>85~89쪽 문제 중 1번~9번, 20번, 23번, 24번
-	
+	<b>내용 범위</b> : 수열의 수렴과 발산~지수함수와 로그함수의 도함수<br><b>시험 범위 해당하는 쪽 수</b><br>12~67쪽<br>85~89쪽 문제 중 1번~9번, 20번, 23번, 24번	
+
+	<button class="menu-btn">메뉴</button>
+	<div class="menu">		
 		
+		<ul>
+			<li><a href="list.html">Contents List</a></li>
+			<li><a href="#">메뉴 항목 2</a></li>
+			<li><a href="#">메뉴 항목 3</a></li>
+			<li><a href="#">메뉴 항목 4</a></li>
+		</ul>
+
+	</div>
 		
 		
 	
