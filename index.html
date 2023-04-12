@@ -46,5 +46,18 @@
 	<br><br>
 	<h1>HomePage</h1>
 	
+	<script>
+		
+		document.querySelector('.menu-btn').addEventListener('click', function () {
+			const menu = document.querySelector('.menu');
+			if (menu.style.display === 'none') {
+				menu.style.display = 'block';
+			} else {
+				menu.style.display = 'none';
+			}
+		});
+		
+	</script>
+	
 </body>
 </html>
