@@ -82,6 +82,24 @@
         transform: translateX(-50%);
 
 }
+		
+		/* 메뉴 요소 초기화 */
+.menu {
+  display: none;
+}
+
+/* 버튼 클릭 시 메뉴 요소 보여주기 */
+.menu-btn:hover + .menu,
+.menu:hover {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
  
 
 	</style>
@@ -95,6 +113,19 @@
 	
 		
 	</div>
+	
+	<!-- 메뉴 버튼 -->
+<button class="menu-btn">메뉴</button>
+
+<!-- 메뉴 요소 -->
+<nav class="menu">
+  <ul>
+    <li><a href="#">메뉴 항목 1</a></li>
+    <li><a href="#">메뉴 항목 2</a></li>
+    <li><a href="#">메뉴 항목 3</a></li>
+  </ul>
+</nav>
+
 	
 	<br><br><br><br><br><br><br><br><br><br>
 	
