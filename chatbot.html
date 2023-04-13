@@ -3,6 +3,10 @@
 <head>
 	<title>챗봇</title>
 	<style>
+		body {
+			background-color: #0072C6;
+		}
+		
 		.chat-container {
 			display: flex;
 			flex-direction: row;
@@ -82,30 +86,6 @@
         transform: translateX(-50%);
 
 }
-		
-		.menu {
-			display: none; 
-			position: absolute;
-			top: 50px;
-			left: 0;
-			background-color: #fff;
-			border: 1px solid #ddd;
-			padding: 10px;
-		}
-		
-		.menu-btn {
-			display: block;
-			position: fixed;
-			top: 10px;
-			left: 10px;
-			background-color: #333;
-			color: #fff;
-			padding: 10px 20px;
-			border: none;
-			border-radius: 5px;
-			cursor: pointer;
-			z-index: 1; 
-		}
  
 
 	</style>
@@ -125,16 +105,6 @@
 		<img src="전송버튼이미지.png" onclick="sendMessage()" style="bottom: 26px; position: fixed; transform: translateX(-50%); left: 73.5%; block-size: 3%;">
 	
 		
-	</div>
-	
-	<button class="menu-btn">메뉴</button>
-	<div class="menu">
-		<ul>
-			<li><a href="list.html">Contents List</a></li>
-			<li><a href="index.html">HomePage</a></li>
-			<li><a href="#">메뉴 항목 3</a></li>
-			<li><a href="#">메뉴 항목 4</a></li>
-		</ul>
 	</div>
 	
 
@@ -214,15 +184,6 @@ function getCurrentDate() {
 
 		  document.getElementById("chatbox").innerHTML += '<div class="chat-container left"><img src="chatbot.png" alt="챗봇 이미지" class="chatbot-image"><div class="chatbot-bubble"><p>챗봇: ' + response + '</p></div></div>';
 		}
-		
-		document.querySelector('.menu-btn').addEventListener('click', function () {
-			const menu = document.querySelector('.menu');
-			if (menu.style.display === 'none') {
-				menu.style.display = 'block';
-			} else {
-				menu.style.display = 'none';
-			}
-		});
 
 	</script>
 </body>
