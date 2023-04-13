@@ -4,47 +4,12 @@
 	<title>홈페이지</title>
   	<style>
 		body {
-			background-color: gray;
-		}
-		.menu {
-			display: none;
-			position: absolute;
-			top: 50px;
-			left: 0;
-			background-color: #fff;
-			border: 1px solid #ddd;
-			padding: 10px;
-		}
-		
-		.menu-btn {
-			display: block;
-			position: fixed;
-			top: 10px;
-			left: 10px;
-			background-color: #333;
-			color: #fff;
-			padding: 10px 20px;
-			border: none;
-			border-radius: 5px;
-			cursor: pointer;
-			z-index: 1; 
+			background-color: #0072C6;
 		}
 	</style>	
   
 </head>
-<body>
-  	<button class="menu-btn">메뉴</button>
-	<div class="menu">		
-		
-		<ul>
-			<li><a href="chatbot.html">ChatBotCenter</a></li>
-			<li><a href="list.html">ContentsList</a></li>
-			<li><a href="#">메뉴 항목 3</a></li>
-			<li><a href="#">메뉴 항목 4</a></li>
-		</ul>
-
-	</div>
-  
+<body>  
 	<br><br>
 	<a href="index.html"><img src="homepage_logo.png" style="top: 100px; width: 10%; height: 10%; left: 50%; display: block; margin: 0 auto; box-shadow: 10px;"></a>
 	<br><a href="chatbot.html"><img src="CB.png" style="top: 100px; width: 10%; height: 10%; left: 10%;"></a>
@@ -52,18 +17,7 @@
 	<a href="calculator.html"><img src="SC.png" style="top: 100px; width: 10%; height: 10%; left: 30%;"></a>
 	<a href="CountDown.html"><img src="CD.png" style="top: 100px; width: 10%; height: 10%; left: 40%;"></a>
 	<a href="CountUp.html"><img src="CU.png" style="top: 100px; width: 10%; height: 10%; left: 50%;"></a>
-	<script>
-		
-		document.querySelector('.menu-btn').addEventListener('click', function () {
-			const menu = document.querySelector('.menu');
-			if (menu.style.display === 'none') {
-				menu.style.display = 'block';
-			} else {
-				menu.style.display = 'none';
-			}
-		});
-		
-	</script>
+
 	
 </body>
 </html>
