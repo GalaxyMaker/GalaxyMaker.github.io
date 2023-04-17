@@ -99,3 +99,34 @@ function gameLoop() {
 	update();
 }
 setInterval(gameLoop, 100);
+
+function handleKeyPress(event) {
+  let key = event.key;
+  switch (key) {
+    case "w":
+    case "ArrowUp":
+      if (direction !== "down") {
+        direction = "up";
+      }
+      break;
+    case "a":
+    case "ArrowLeft":
+      if (direction !== "right") {
+        direction = "left";
+      }
+      break;
+    case "s":
+    case "ArrowDown":
+      if (direction !== "up") {
+        direction = "down";
+      }
+      break;
+    case "d":
+    case "ArrowRight":
+      if (direction !== "left") {
+        direction = "right";
+      }
+      break;
+  }
+}
+
