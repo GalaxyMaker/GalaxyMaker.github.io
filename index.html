@@ -10,10 +10,27 @@
 			border-bottom: 1px solid black;
 		}
 		.rainbow-text {
-		  background: -webkit-linear-gradient(0deg, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00);
+		  font-size: 2em;
+		  font-weight: bold;
+		  background: -webkit-linear-gradient(left, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #8b00ff);
 		  -webkit-background-clip: text;
 		  -webkit-text-fill-color: transparent;
+		  transition: background 1s ease-in-out;
+		  animation: rainbow-animation 6s linear infinite;
 		}
+
+		@keyframes rainbow-animation {
+  		0% {
+  		  background-position: 0% 50%;
+  		}
+  		50% {
+  		  background-position: 100% 50%;
+  		}
+  		100% {
+    		background-position: 0% 50%;
+		  }
+		}
+
 
 	</style>
   <link rel="shortcut icon" type="image/png" href="favicon.png">
