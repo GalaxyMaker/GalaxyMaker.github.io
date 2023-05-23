@@ -8,7 +8,6 @@
 </head>
 <body>
   <style>
-    .chat-container { display: flex; flex-direction: column; align-items: flex-start; margin-bottom: 20px;}
     .chat-content { height: 350px; overflow-y: scroll;}
     .line { margin-top: 10px; display: flex;}
     .chat-box { background: #eee; padding: 5px; max-width: 200px;}
@@ -21,21 +20,33 @@
     <div class="line">
       <span class="chat-box mine">안녕!</span>
     </div>
-  </div>	
-  <div class="chat-container">
-    <input type="text" id="usermsg" onkeydown="if (event.keyCode === 13) sendMessage();">
+  </div>
+  <div class="input-container">
+    <input type="text" id="usermsg" placeholder="메시지를 입력하세요">
+    <button onclick="sendMessage()">전송</button>
   </div>
   
-<script>
-  function sendMessage() {
-    const message = document.getElementById("usermsg").value;
-    const usermsg = message.trim();
-    if (usermsg === "") {
-      return;
+  <script>
+    function sendMessage() {
+      const usermsg = document.getElementById("usermsg").value.trim();
+      if (usermsg === "") {
+        return;
+      }
+      
+      const chatContent = document.querySelector(".chat-content");
+      const newLine = document.createElement("div");
+      newLine.classList.add("line");
+      
+      const newChatBox = document.createElement("span");
+      newChatBox.classList.add("chat-box", "mine");
+      newChatBox.textContent = usermsg;
+      
+      newLine.appendChild(newChatBox);
+      chatContent.appendChild(newLine);
+      
+      document.getElementById("usermsg").value = "";
     }
-    document.getElementById("chat-box").innerHTML;
-  	document.getElementById("usermsg").value = "";
-  }
-</script>
+  </script>
 </body>
 </html>
+
