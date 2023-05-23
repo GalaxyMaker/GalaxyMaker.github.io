@@ -8,7 +8,7 @@
 </head>
 <body>
   <style>
-    .chat-content { height: 350px; overflow-y: scroll;}
+    .chat-content { height: 350px; overflow-y: scroll;}zasd
     .line { margin-top: 10px; display: flex;}
     .chat-box {background: #eee; padding: 5px; max-width: 200px;}
     .mine {margin-left: auto;}
@@ -21,7 +21,17 @@
       <span class="chat-box mine">안녕!</span>
     </div>
   </div>
-  <input class="chat-box" id="input">
-  <button id="send">전송</button>
+  <input class="chat-box" id="usermsg">
+  <button id="send" onclick="sendMessage()">전송</button>
+  
+<script>
+  	function sendMessage() {
+  		const message = document.getElementById("usermsg").value;
+      		const usermsg = document.getElementById("usermsg").value.trim();
+      		if (usermsg === "") {
+          		return;
+      		}
+	}
+  
 </body>
 </html>
