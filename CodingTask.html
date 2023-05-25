@@ -22,7 +22,7 @@
     </div>
   </div>
   <div class="input-container">
-    <input type="text" id="usermsg" placeholder="메시지를 입력하세요">
+    <input type="text" id="usermsg" onkeydown="if (event.keyCode === 13) sendMessage();" placeholder="메시지를 입력하세요">
     <button id="Button">전송</button>
   </div>
 
