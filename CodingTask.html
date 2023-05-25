@@ -5,15 +5,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-</head>
-<body>
   <style>
     .chat-content { height: 350px; overflow-y: scroll;}
     .line { margin-top: 10px; display: flex;}
     .chat-box { background: #eee; padding: 5px; max-width: 200px;}
     .mine { margin-left: auto;}
   </style>
-  <div class="chat-content">
+</head>
+<body>
+  <div class="chat-content" id="chatContent">
     <div class="line">
       <span class="chat-box">안녕?</span>
     </div>
@@ -23,30 +23,36 @@
   </div>
   <div class="input-container">
     <input type="text" id="usermsg" placeholder="메시지를 입력하세요">
-    <button onclick="sendMessage()">전송</button>
+    <button id="Button">전송</button>
   </div>
-  
+
   <script>
+    const Button = document.getElementById("Button");
+    Button.addEventListener("click", sendMessage);
+
     function sendMessage() {
-      const usermsg = document.getElementById("usermsg").value.trim();
-      if (usermsg === "") {
-        return;
+      const usermsg = document.getElementById("usermsg");
+      const message = usermsg.value.trim();
+
+      if (message !== "") {
+        const chatContent = document.getElementById("chatContent");
+
+        const line = document.createElement("div");
+        line.className = "line";
+
+        const chatBox = document.createElement("span");
+        chatBox.className = "chat-box mine";
+        chatBox.textContent = message;
+
+        line.appendChild(chatBox);
+        chatContent.appendChild(line);
+
+        usermsg.value = "";
+        chatContent.scrollTop = chatContent.scrollHeight;
       }
-      
-      const chatContent = document.querySelector(".chat-content");
-      const newLine = document.createElement("div");
-      newLine.classList.add("line");
-      
-      const newChatBox = document.createElement("span");
-      newChatBox.classList.add("chat-box", "mine");
-      newChatBox.textContent = usermsg;
-      
-      newLine.appendChild(newChatBox);
-      chatContent.appendChild(newLine);
-      
-      document.getElementById("usermsg").value = "";
     }
   </script>
 </body>
 </html>
+
 
