@@ -27,7 +27,7 @@
   </div>
 
   <script type="module">
-    import{Configuration, OpenAIApi} from 'https://cdn.skypack.dev/openai';
+    import { Configuration, OpenAIApi } from 'https://cdn.skypack.dev/openai';
     const configuration = new Configuration({
       apiKey: 'YOUR_API_KEY_HERE',
     });
@@ -55,29 +55,33 @@
 
         usermsg.value = "";
         chatContent.scrollTop = chatContent.scrollHeight;
-        
-        const response = await openai.createCompletion({
-          model: "text-davinci-003",
-          prompt: message,
-          temperature: 0.7,
-          max_tokens: 256,
-          top_p: 1,
-          frequency_penalty: 0,
-          presence_penalty: 0,
-        });
 
-        const answer = response.choices[0].text.trim();
+        try {
+          const response = await openai.createCompletion({
+            model: "text-davinci-003",
+            prompt: message,
+            temperature: 0.7,
+            max_tokens: 256,
+            top_p: 1,
+            frequency_penalty: 0,
+            presence_penalty: 0,
+          });
 
-        const answerLine = document.createElement("div");
-        answerLine.className = "line";
+          const answer = response.choices[0].text.trim();
 
-        const answerBox = document.createElement("span");
-        answerBox.className = "chat-box";
-        answerBox.textContent = answer;
+          const answerLine = document.createElement("div");
+          answerLine.className = "line";
 
-        answerLine.appendChild(answerBox);
-        chatContent.appendChild(answerLine);
-        chatContent.scrollTop = chatContent.scrollHeight;
+          const answerBox = document.createElement("span");
+          answerBox.className = "chat-box";
+          answerBox.textContent = answer;
+
+          answerLine.appendChild(answerBox);
+          chatContent.appendChild(answerLine);
+          chatContent.scrollTop = chatContent.scrollHeight;
+        } catch (error) {
+          console.error("Error:", error);
+        }
       }
     }
   </script>
