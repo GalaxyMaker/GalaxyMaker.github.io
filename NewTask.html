@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .chat-content { height: 350px; overflow-y: scroll;}
+    .line { margin-top: 10px; display: flex;}
+    .chat-box { background: #eee; padding: 5px; max-width: 200px;}
+    .mine { margin-left: auto;}
+  </style>
+</head>
+<body>
+  <div class="chat-content" id="chatContent">
+    <div class="line">
+      <span class="chat-box">안녕?</span>
+    </div>
+    <div class="line">
+      <span class="chat-box mine">안녕!</span>
+    </div>
+  </div>
+  <div class="input-container">
+    <input type="text" id="usermsg" placeholder="메시지를 입력하세요">
+    <button id="Button">전송</button>
+  </div>
+
+  <script type="module">
+    import{Configuration, OpenAIApi} from 'https://cdn.skypack.dev/openai';
+    const configuration = new Configuration({
+      apiKey: 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,
+    });
+    const openai = new OpenAIApi(configuration);
+
+    openai.createCompletion({
+      model: "text-davinci-003",
+      prompt: document.querySelector('#input').value,
+      temperature: 0.7,
+      max_tokens: 256,
+      top_p: 1,
+      frequency_penalty: 0,
+      presence_penalty: 0,
+    });
+
+    const Button = document.getElementById("Button");
+    Button.addEventListener("click", sendMessage);
+
+    function sendMessage() {
+      const usermsg = document.getElementById("usermsg");
+      const message = usermsg.value.trim();
+
+      if (message !== "") {
+        const chatContent = document.getElementById("chatContent");
+
+        const line = document.createElement("div");
+        line.className = "line";
+
+        const chatBox = document.createElement("span");
+        chatBox.className = "chat-box mine";
+        chatBox.textContent = message;
+
+        line.appendChild(chatBox);
+        chatContent.appendChild(line);
+
+        usermsg.value = "";
+        chatContent.scrollTop = chatContent.scrollHeight;
+      }
+    }
+  </script>
+</body>
+</html>
