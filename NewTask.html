@@ -29,24 +29,14 @@
   <script type="module">
     import{Configuration, OpenAIApi} from 'https://cdn.skypack.dev/openai';
     const configuration = new Configuration({
-      apiKey: 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,
+      apiKey: 'YOUR_API_KEY_HERE',
     });
     const openai = new OpenAIApi(configuration);
-
-    openai.createCompletion({
-      model: "text-davinci-003",
-      prompt: document.querySelector('#input').value,
-      temperature: 0.7,
-      max_tokens: 256,
-      top_p: 1,
-      frequency_penalty: 0,
-      presence_penalty: 0,
-    });
 
     const Button = document.getElementById("Button");
     Button.addEventListener("click", sendMessage);
 
-    function sendMessage() {
+    async function sendMessage() {
       const usermsg = document.getElementById("usermsg");
       const message = usermsg.value.trim();
 
@@ -64,6 +54,30 @@
         chatContent.appendChild(line);
 
         usermsg.value = "";
+        chatContent.scrollTop = chatContent.scrollHeight;
+
+        // OpenAI API 요청 보내기
+        const response = await openai.createCompletion({
+          model: "text-davinci-003",
+          prompt: message,
+          temperature: 0.7,
+          max_tokens: 256,
+          top_p: 1,
+          frequency_penalty: 0,
+          presence_penalty: 0,
+        });
+
+        const answer = response.choices[0].text.trim();
+
+        const answerLine = document.createElement("div");
+        answerLine.className = "line";
+
+        const answerBox = document.createElement("span");
+        answerBox.className = "chat-box";
+        answerBox.textContent = answer;
+
+        answerLine.appendChild(answerBox);
+        chatContent.appendChild(answerLine);
         chatContent.scrollTop = chatContent.scrollHeight;
       }
     }
