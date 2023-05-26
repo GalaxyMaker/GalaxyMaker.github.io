@@ -55,8 +55,7 @@
 
         usermsg.value = "";
         chatContent.scrollTop = chatContent.scrollHeight;
-
-        // OpenAI API 요청 보내기
+        
         const response = await openai.createCompletion({
           model: "text-davinci-003",
           prompt: message,
