@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하루 일정</title>
+    <style>
+        #schedule {
+            list-style-type: none;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>급식</h1>
+    <label for="date">날짜 선택: </label>
+    <input type="date" id="date">
+    <ul id="schedule">
+    </ul>
+
+    <script>
+        const scheduleData = {
+            "2023-08-23": [
+                "추가밥",
+                "토마토스파게티",
+                "향일새우버거세트",
+                "레드피치",
+                "열무김치",
+                "모듬피클"
+            ],
+            "2023-08-22": [
+                "차수수밥",
+                "돈등뼈감자탕",
+                "새송이오이초무침",
+                "훈제오리볶음",
+                "석박지",
+                "토마토",
+                "무쌈"
+            ]
+
+        };
+
+        const dateInput = document.getElementById("date");
+        const scheduleList = document.getElementById("schedule");
+
+        dateInput.addEventListener("change", () => {
+            const selectedDate = dateInput.value;
+            const selectedSchedule = scheduleData[selectedDate];
+
+            if (selectedSchedule) {
+                scheduleList.innerHTML = selectedSchedule.map(item => `<li>${item}</li>`).join("");
+            } else {
+                scheduleList.innerHTML = "<li>해당 날짜의 일정이 없습니다.</li>";
+            }
+        });
+    </script>
+</body>
+</html>
