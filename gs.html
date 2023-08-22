@@ -15,6 +15,7 @@
     <h1>급식</h1>
     <label for="date">날짜 선택: </label>
     <input type="date" id="date">
+    <button id="showToday">오늘 날짜</button>
     <ul id="schedule">
     </ul>
 
@@ -96,17 +97,30 @@
 
         const dateInput = document.getElementById("date");
         const scheduleList = document.getElementById("schedule");
+        const showTodayButton = document.getElementById("showToday");
 
-        dateInput.addEventListener("change", () => {
-            const selectedDate = dateInput.value;
-            const selectedSchedule = scheduleData[selectedDate];
+        const getFormattedDate = (date) => {
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, "0");
+            const day = String(date.getDate()).padStart(2, "0");
+            return `${year}-${month}-${day}`;
+        };
 
-            if (selectedSchedule) {
-                scheduleList.innerHTML = selectedSchedule.map(item => `<li>${item}</li>`).join("");
+        const showTodaySchedule = () => {
+            const today = new Date();
+            const todayFormatted = getFormattedDate(today);
+            const todaySchedule = scheduleData[todayFormatted];
+
+            if (todaySchedule) {
+                scheduleList.innerHTML = todaySchedule.map(item => `<li>${item}</li>`).join("");
             } else {
-                scheduleList.innerHTML = "<li>해당 날짜의 일정이 없습니다.</li>";
+                scheduleList.innerHTML = "<li>오늘의 일정이 없습니다.</li>";
             }
-        });
+        };
+
+        showTodayButton.addEventListener("click", showTodaySchedule);
+
+        showTodaySchedule();    
     </script>
 </body>
 </html>
