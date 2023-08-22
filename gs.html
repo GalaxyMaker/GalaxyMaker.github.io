@@ -120,7 +120,18 @@
 
         showTodayButton.addEventListener("click", showTodaySchedule);
 
-        showTodaySchedule();    
+        dateInput.addEventListener("change", () => {
+            const selectedDate = dateInput.value;
+            const selectedSchedule = scheduleData[selectedDate];
+
+            if (selectedSchedule) {
+                scheduleList.innerHTML = selectedSchedule.map(item => `<li>${item}</li>`).join("");
+            } else {
+                scheduleList.innerHTML = "<li>해당 날짜의 일정이 없습니다.</li>";
+            }
+        });
+        
+        showTodaySchedule();
     </script>
 </body>
 </html>
